@@ -1,28 +1,29 @@
 <!DOCTYPE HTML>
+
 <html>
 <title>Json</title>
 <head>
-	<script src="jquery.1.9.1.min.js"></script>
+  <script src="jquery.1.9.1.min.js.js"></script>
 </head>
+
 <body>
+<a href="#" itemList='[{"name":"hari","address":"palpa"},{"name":"sita","address":"Ktm"}]' onClick="getItem($(this))" arial-lable="sdfds">Click Me</a>
 
-<a href="#" itemList="[{'name':'hari','address':'palpa'},{'name':'sita','address':'Ktm'}]" onClick="getItem($(this))" arial-lable="sdfds">Click Me</a>
 <div>
-	
+
 </div>
+
 <script>
-	function getItem($this){	
-		var jData=eval("("+$this.attr("itemList")+")");	
-		console.log(jData);
-		
-		$.each(jData,function(ind,val){
-			$('div').append('<p>'+val.name+'&nbsp;&nbsp;&nbsp;'+val.address+'</p>');
-		});
-			
-		
+
+  function getItem($this){  	
+  	var jData=JSON.parse($this.attr("itemList"));
+	console.log(jData);
+	for(var i=0,ln=jData.length;i<ln;++i){
+		$('div').append('<p>'+jData[i].name+'&nbsp;&nbsp;&nbsp;'+jData[i].address+'</p>');
 	}
+  
+  }
+
 </script>
-
 </body>
-
 </html>
